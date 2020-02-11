@@ -1,6 +1,7 @@
 import { Controller, Get, Param, UsePipes, Post, Body, ParseIntPipe } from '@nestjs/common';
 import { AppService } from './app.service';
 import { UpperPipe } from './upper.pipe';
+import { SlugPipe } from './slug.pipe';
 
 @Controller()
 export class AppController {
@@ -19,6 +20,13 @@ export class AppController {
     const idType= typeof id;
     const res = { id:id, idType: idType};
     return res;
+  }
+
+  @Post('articles')
+  @UsePipes(SlugPipe)
+  createArticle(@Body('title') title, @Body() allBody) {
+    allBody.slug = title;
+    return allBody;
   }
 
   @Post()

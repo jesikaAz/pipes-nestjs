@@ -3,6 +3,12 @@
 </p>
 
 
+
+<p align="center">
+  <img src="https://docs.nestjs.com/assets/Pipe_1.png" width="320" alt="Pipe capture" />
+</p>
+
+
 ## Description
 
 Création de différents custom pipe : 
